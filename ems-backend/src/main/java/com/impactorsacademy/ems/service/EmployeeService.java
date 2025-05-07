@@ -4,7 +4,7 @@ import com.impactorsacademy.ems.dto.EmployeeDto;
 
 
 
-public class EmployeeService {
-    EmployeeDto createEmployee(EmployeeDto employeeDto);
-
+public interface EmployeeService {
+  EmployeeDto createEmployee(EmployeeDto employeeDto);
 }
+

@@ -9,20 +9,23 @@ import com.impactorsacademy.ems.repository.EmployeeRepository;
 import com.impactorsacademy.ems.service.EmployeeService;
 
 import lombok.AllArgsConstructor; 
-im
+
 
 @Service
 @AllArgsConstructor 
+
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
-    @Override
-    public EmployeeDto createEmployee(EmployeeDto  employeeDto){
-            Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
-            Employee savedEmployee = employeeRepository.save(employee);
+    @Override  
+    //Build add Employee REST API
+    public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+        Employee employee = EmployeeMapper.mapToEmployee(employeeDto);
+        Employee savedEmployee = employeeRepository.save(employee);
 
-            return null;
+        return EmployeeMapper.mapToEmployeeDto(savedEmployee);
     }
+
 }
 
 
