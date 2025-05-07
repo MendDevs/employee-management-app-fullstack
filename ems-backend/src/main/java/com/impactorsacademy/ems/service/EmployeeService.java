@@ -1,6 +1,10 @@
 package com.impactorsacademy.ems.service;
 
-public class EmployeeService {
+import com.impactorsacademy.ems.dto.EmployeeDto;
 
+
+
+public class EmployeeService {
+    EmployeeDto createEmployee(EmployeeDto employeeDto);
 
 }
