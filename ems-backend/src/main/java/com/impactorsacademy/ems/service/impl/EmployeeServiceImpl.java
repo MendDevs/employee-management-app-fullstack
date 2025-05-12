@@ -1,9 +1,11 @@
 package com.impactorsacademy.ems.service.impl;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.impactorsacademy.ems.dto.EmployeeDto;
 import com.impactorsacademy.ems.entity.Employee;
+import com.impactorsacademy.ems.exception.ResourceNotFoundException;
 import com.impactorsacademy.ems.mapper.EmployeeMapper;
 import com.impactorsacademy.ems.repository.EmployeeRepository;
 import com.impactorsacademy.ems.service.EmployeeService;
@@ -27,10 +29,17 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
+        // TODO Auto-generated method stub
+        Employee employee = employeeRepository.findById(employeeId)
+            .orElseThrow(() -> new ResourceNotFoundException("ID does not match any employee name in our database: " + employeeId));
+        return EmployeeMapper.mapToEmployeeDto(employee);
+    } 
+
+}
+
+    
+    
     
     
     
