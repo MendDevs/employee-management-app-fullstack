@@ -1,6 +1,5 @@
 package com.impactorsacademy.ems.service.impl;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
 
@@ -29,7 +28,6 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto getEmployeeById(Long employeeId) {
 
-        // TODO Auto-generated method stub
         Employee employee = employeeRepository.findById(employeeId)
             .orElseThrow(() -> new ResourceNotFoundException("ID does not match any employee name in our database: " + employeeId));
         return EmployeeMapper.mapToEmployeeDto(employee);
@@ -37,12 +35,5 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 }
 
-    
-    
-    
-    
-    
-
-}
 
 
