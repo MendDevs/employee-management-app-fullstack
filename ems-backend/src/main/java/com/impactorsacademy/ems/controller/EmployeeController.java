@@ -2,6 +2,7 @@ package com.impactorsacademy.ems.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,20 @@ public class EmployeeController {
 
     private EmployeeService employeeService;
 
-    //Build add Employee REST API
+    //Build "ADD" Employee REST API
     @PostMapping 
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto) {
         EmployeeDto createdEmployee = employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(createdEmployee, HttpStatus.CREATED);
     }
+
+    //Build "GET" Employee REST API
+    @GetMapping("{id}")
+    public ResponseEntity<EmployeeDto> getEmployeeById(Long employeeId){
+        EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId); 
+        return ResponseEntity.ok(employeeDto);
+    }
+
+
+
 }
