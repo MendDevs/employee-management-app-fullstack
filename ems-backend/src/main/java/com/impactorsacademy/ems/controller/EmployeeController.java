@@ -31,14 +31,14 @@ public class EmployeeController {
     }
 
     //Build "GET" Employee REST API
-    @GetMapping("{id}")
+    @GetMapping("{id}") //fetches all employees based on the ID
     public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long employeeId){
         EmployeeDto employeeDto = employeeService.getEmployeeById(employeeId); 
         return ResponseEntity.ok(employeeDto);
     }
  
     //Build "GET ALL" Employees REST API
-    @GetMapping("")
+    @GetMapping("")  //fetches all employees (regardless the ID)
     public ResponseEntity<List<EmployeeDto>> getAllEmployees(){
         List<EmployeeDto> employees = employeeService.getAllEmployees();
         return ResponseEntity.ok(employees);
