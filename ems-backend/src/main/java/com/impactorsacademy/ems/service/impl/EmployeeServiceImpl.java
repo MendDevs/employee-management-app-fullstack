@@ -34,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public EmployeeDto getEmployeeById(Long employeeId) {
 
         Employee employee = employeeRepository.findById(employeeId)
-            .orElseThrow(() -> new ResourceNotFoundException("ID does not match any employee name in our database: " + employeeId));
+            .orElseThrow(() -> new ResourceNotFoundException("ID does not match any employee name in our database. " + employeeId));
         return EmployeeMapper.mapToEmployeeDto(employee);
     } 
     
@@ -44,6 +44,20 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employees.stream()
                 .map(employee -> EmployeeMapper.mapToEmployeeDto(employee))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public EmployeeDto updateEmployee(Long employeeId, EmployeeDto updateEmployee) {
+     
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(
+            ()-> new ResourceNotFoundException("ID does not match any employee name in our database.")
+        );
+        employee.setFirstName(updateEmployee.getFirstName());
+        employee.setLastName(updateEmployee.getLastName());
+        employee.setEmail(updateEmployee.getEmail());
+
+        Employee updaEmployeeObj = employeeRepository.save(employee);
+        return EmployeeMapper.mapToEployeeDto(updaEmployeeObj);
     }
 }
 
