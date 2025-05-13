@@ -1,7 +1,9 @@
 package com.impactorsacademy.ems.service.impl;
 
+import java.util.List;
 import org.springframework.stereotype.Service;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 import com.impactorsacademy.ems.dto.EmployeeDto;
 import com.impactorsacademy.ems.entity.Employee;
@@ -13,6 +15,7 @@ import com.impactorsacademy.ems.service.EmployeeService;
 
 @Service
 @AllArgsConstructor 
+
 
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
@@ -32,7 +35,13 @@ public class EmployeeServiceImpl implements EmployeeService {
             .orElseThrow(() -> new ResourceNotFoundException("ID does not match any employee name in our database: " + employeeId));
         return EmployeeMapper.mapToEmployeeDto(employee);
     } 
-
+    
+    @Override
+    public List<EmployeeDto> getAllEmployees(){
+        List<Employee> employees = employeeRepository.findAll();
+        return employees.stream().map(employee) -> EmployeeMapper.mapToEmployeeDto(employee)
+                .collect(Collectors.toList());
+    }
 }
 
 
