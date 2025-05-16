@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.impactorsacademy.ems.dto.EmployeeDto;
 import com.impactorsacademy.ems.service.EmployeeService;
 
-import jakarta.persistence.PostUpdate;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor //helps us avoid writing the consturctor manually
@@ -53,5 +53,13 @@ public class EmployeeController {
         EmployeeDto employeeDto = employeeService.updateEmployee(employeeId, updatedEmployee);
         return ResponseEntity.ok(employeeDto);
     }
+
+    //Build "DELETE" Employee REST API
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId){
+        employeeService.deleteEmployee(employeeId);
+        return ResponseEntity.ok("Employee deleted successfully!.");
+    }
+                                                    
 
 }
