@@ -1,13 +1,13 @@
 import './App.css'
-import React, { useState } from 'react'; // Import useState
-
+import React, { useState } from 'react';
+import HelloWorld from './HelloWorld';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Helloworld/>
+      <HelloWorld />
     </>
   )
 }
