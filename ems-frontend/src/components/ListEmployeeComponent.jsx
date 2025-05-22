@@ -30,7 +30,7 @@ const ListEmployeeComponent = () => {
       <table className='table table-striped table-bordered'>
         <thead>
             <tr>
-                <th> Employee Id </th>
+                <th>Employee Id </th>
                 <th>Employee First Name</th>
                 <th>Employee Last Name </th>
                 <th>Employee Email Id </th>
