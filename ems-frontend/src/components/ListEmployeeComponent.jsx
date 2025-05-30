@@ -13,31 +13,11 @@ const ListEmployeeComponent = () => {
         })
    }, [])
 
-    const dummyData = [
-        {
-            "id" : 1,
-            "firstName" : "Eman",
-            "lastName"  : "Morris",
-            "email"     : "emman@gmail.com"
-        },
-        {
-            "id" : 2,
-            "firstName" : "J",
-            "lastName"  : "Peters",
-            "email"     : "j@gmail.com"
-        },
-        {
-            "id" : 3,
-            "firstName" : "toby",
-            "lastName"  : "Oki",
-            "email"     : "toby@gmail.com"
-        }
-        
-    ]
 
   return (
     <div className='container'>
       <h2>List of Employees</h2>
+      <button className='btn btn-primary mb-2' onClick={addNewEmployee}>Add Employee</button>
       <table className='table table-striped table-bordered'>
         <thead>
             <tr>
