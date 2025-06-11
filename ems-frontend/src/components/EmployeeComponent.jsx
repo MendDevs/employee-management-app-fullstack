@@ -5,18 +5,6 @@ const EmployeeComponent = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleFirstName = (e)=>{
-    setFirstName(e.target.value);
-  }
-
-  const handleLastName = (e)=> {
-    setLastName(e.target.value);
-  }
-
-  const handleEmail = (e) =>{
-    setEmail(e.target.value);
-  }
-
   function saveEmployee(e) {
     e.preventDefault();
     const employee = { firstName, lastName, email };
@@ -38,7 +26,7 @@ const EmployeeComponent = () => {
                   name='firstName'
                   value={firstName}
                   className='form-control'
-                  onChange={handleFirstName}
+                  onChange={(e)=>setFirstName(e.target.value)}
                 />
               </div>
 
@@ -50,7 +38,7 @@ const EmployeeComponent = () => {
                   name='lastName'
                   value={lastName}
                   className='form-control'
-                  onChange={handleLastName}
+                  onChange={(e)=>setLastName(e.target.value)}
                 />
               </div>
 
@@ -62,7 +50,7 @@ const EmployeeComponent = () => {
                   name='email'
                   value={email}
                   className='form-control'
-                  onChange={handleEmail}
+                  onChange={(e)=>setEmail(e.target.value)}
                 />
               </div>
 
