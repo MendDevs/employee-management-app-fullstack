@@ -30,6 +30,7 @@ const ListEmployeeComponent = () => {
                 <th>Employee First Name</th>
                 <th>Employee Last Name </th>
                 <th>Employee Email Id </th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
