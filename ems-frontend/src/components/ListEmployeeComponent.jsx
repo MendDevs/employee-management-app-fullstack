@@ -23,6 +23,24 @@ const ListEmployeeComponent = () => {
         navigator(`/edit-employee/${id}`)
    }
 
+   function saveEmployee(e) {
+     e.preventDefault();
+     if (!validateForm()) return;
+     const employee = { firstName, lastName, email };
+
+     if (id) {
+       // Update existing employee
+       updateEmployee(id, employee).then(() => {
+         navigator('/employees');
+       });
+     } else {
+       // Create new employee
+       createEmployee(employee).then(() => {
+         navigator('/employees');
+       });
+     }
+   }
+
   return (
     <div className='container'>
       <h2>List of Employees</h2>
