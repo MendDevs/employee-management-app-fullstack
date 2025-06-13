@@ -5,6 +5,7 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EmployeeComponent from './components/EmployeeComponent';
+import { createEmployee, getEmployee, updateEmployee } from "./services/EmployeeService";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path='/add-employee' element={<EmployeeComponent/>}></Route>
 
           {/* // http://localhost:3000/edit-employee/1 */}
-          <Route path='/edit-employee/:id' element = {<EmployeeComponent/>}></Route>
+          <Route path='/edit-employee/:id' element={<EmployeeComponent/>}></Route>
         </Routes>
         <FooterComponent/>
       </BrowserRouter>
@@ -28,4 +29,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
